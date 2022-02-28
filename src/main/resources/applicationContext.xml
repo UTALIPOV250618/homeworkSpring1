@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+
+    <context:property-placeholder location="application.properties"/>
+
+
+    <bean id="dogID" class="peaksoft.Dog">
+        <constructor-arg index="0" value="${Dog.brand}"/>
+        <constructor-arg index="1" value="${Dog.color}"/>
+        <constructor-arg index="2" value="${Dog.dogName}"/>
+    </bean>
+    <bean id="catID" class="peaksoft.Cat">
+        <constructor-arg index="0" value="${Cat.brand}"/>
+        <constructor-arg index="1" value="${Cat.color}"/>
+        <constructor-arg index="2" value="${Cat.catName}"/>
+
+    </bean>
+
+    <bean id = "personID" class="peaksoft.Person">
+        <constructor-arg  index="0"  ref="dogID"/>
+        <constructor-arg  index="1" value="${Person.name}"/>
+        <constructor-arg  index="2" value="${Person.age}"/>
+    </bean>
+
+    <bean id = "person1ID" class="peaksoft.Person">
+        <constructor-arg index="0" ref="catID"/>
+        <constructor-arg index="1" value="${Person.name1}"/>
+        <constructor-arg index="2" value="${Person.age1}"/>
+    </bean>
+
+
+</beans>
